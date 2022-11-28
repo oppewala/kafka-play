@@ -1,0 +1,19 @@
+syntax = "proto3";
+package ksql;
+
+option csharp_namespace = "Kafka.Test.Schemas";
+
+message StockTrade {
+  string side = 1;
+  int32 quantity = 2;
+  string symbol = 3;
+  int32 price = 4;
+  string account = 5;
+  string userid = 6;
+}
+
+message Latency {
+  string zone = 1;
+  string application = 2;
+  int64 latency = 3;
+}

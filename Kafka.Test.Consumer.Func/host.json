@@ -1,0 +1,18 @@
+{
+    "version": "2.0",
+    "logging": {
+        "applicationInsights": {
+            "samplingSettings": {
+                "isEnabled": true,
+                "excludedTypes": "Request;Exception"
+            }
+        },
+        "logLevel": {
+            "default": "Information",
+            "Function.KafkaTrigger.User": "Information",
+            "Function.TrackingTrigger.User": "Information",
+            "Function.LatencyTrigger.User": "Information",
+            "Function": "Information"
+        }
+    }
+}

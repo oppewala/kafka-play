@@ -1,0 +1,104 @@
+﻿@page "/latency"
+@using Kafka.Test.Overview.Data
+@inject LatencyService LatencyService
+
+<PageTitle>latency</PageTitle>
+
+<h1>Latency</h1>
+<h2>Charts</h2>
+<h3>Last 1min</h3>
+<LineChart @ref="_countChart" TItem="CountDataPoint" Options="@_lineChartOptions" />
+
+<h2>Stats</h2>
+@foreach (var (key, bag) in LatencyService.Latencies)
+{
+    <h3>@key</h3>
+    <h4>Total</h4>
+    <ul>
+        <li>Count: @bag.Min</li>
+        <li>Total: @bag.Min</li>
+        <li>Min: @bag.Min</li>
+        <li>Max: @bag.Max</li>
+        <li>Avg: @bag.Avg</li>
+    </ul>
+    <h4>Last 1 Minutes</h4>
+   @if (bag.Cached1Min.Any())
+   {
+       <ul>
+           <li>Count: @bag.Cached1Min.Count</li>
+           <li>Total: @bag.Cached1Min.Sum(lr => lr.Latency)</li>
+           <li>Min: @bag.Cached1Min.Min(lr => lr.Latency)</li>
+           <li>Max: @bag.Cached1Min.Max(lr => lr.Latency)</li>
+           <li>Avg: @bag.Cached1Min.Average(lr => lr.Latency)</li>
+       </ul>
+   }
+    <h4>Last 5 Minutes</h4>
+    @if (bag.Cached1Min.Any())
+    {
+        <ul>
+            <li>Count: @bag.Cached5Min.Count</li>
+            <li>Total: @bag.Cached5Min.Sum(lr => lr.Latency)</li>
+            <li>Min: @bag.Cached5Min.Min(lr => lr.Latency)</li>
+            <li>Max: @bag.Cached5Min.Max(lr => lr.Latency)</li>
+            <li>Avg: @bag.Cached5Min.Average(lr => lr.Latency)</li>
+        </ul>
+    }
+}
+
+@code {
+    private LineChart<CountDataPoint> _countChart;
+
+    LineChartOptions _lineChartOptions = new LineChartOptions()
+    {
+        Parsing = new ChartParsing()
+        {
+            XAxisKey = nameof(CountDataPoint.Timestamp),
+            YAxisKey = nameof(CountDataPoint.Count)
+        }
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await HandleRedraw();
+        }
+    }
+
+    async Task HandleRedraw()
+    {
+        await _countChart.Clear();
+
+        var datasets = GetLineChartDataset();
+        await _countChart.AddDataSet(datasets);
+    }
+
+    LineChartDataset<CountDataPoint>[] GetLineChartDataset()
+    {
+        var datasets = new List<LineChartDataset<CountDataPoint>>();
+        foreach (var (key, bag) in LatencyService.Latencies)
+        {
+            var dataset = new LineChartDataset<CountDataPoint>
+            {
+                Label = key,
+                Data = bag.Latencies
+                    .OrderBy(l => l.Timestamp)
+                    .GroupBy(l => Math.Floor(l.Timestamp / 1000f))
+                    .Select(g => new CountDataPoint(Convert.ToInt64(g.Key), g.Count()))
+                    .ToList()
+            };
+            datasets.Add(dataset);
+        }
+
+        return datasets.ToArray();
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        // Long running data access code here
+        return Task.CompletedTask;
+    }
+
+    public record CountDataPoint(long Timestamp, int Count);
+
+}

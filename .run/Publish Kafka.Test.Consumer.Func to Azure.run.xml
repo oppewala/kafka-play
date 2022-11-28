@@ -1,0 +1,42 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Publish Kafka.Test.Consumer.Func to Azure" type="AzureFunctionAppPublish" factoryName="Azure Function App">
+    <option name="AZURE_FUNCTION_APP_PROJECT" value="$PROJECT_DIR$/Kafka.Test.Consumer.Func/Kafka.Test.Consumer.Func.csproj" />
+    <option name="AZURE_FUNCTION_APP_SUBSCRIPTION_ID" value="f42acdb2-e036-40fb-b1b9-42f186d97217" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_APP" value="0" />
+    <option name="AZURE_FUNCTION_APP_ID" value="/subscriptions/f42acdb2-e036-40fb-b1b9-42f186d97217/resourceGroups/rg-kafka-testing/providers/Microsoft.Web/sites/fapp-kafka-testing" />
+    <option name="AZURE_FUNCTION_APP_NAME" value="" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_RESOURCE_GROUP" value="0" />
+    <option name="AZURE_FUNCTION_APP_RESOURCE_GROUP_NAME" value="" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_APP_SERVICE_PLAN" value="0" />
+    <option name="AZURE_FUNCTION_APP_SERVICE_PLAN_ID" value="/subscriptions/f42acdb2-e036-40fb-b1b9-42f186d97217/resourceGroups/rg-kafka-testing/providers/Microsoft.Web/serverfarms/ASP-rgkafkatesting-9f02" />
+    <option name="AZURE_FUNCTION_APP_SERVICE_PLAN_NAME" value="" />
+    <option name="AZURE_FUNCTION_APP_LOCATION" value="eastus" />
+    <option name="AZURE_FUNCTION_APP_PRICING_TIER" value="" />
+    <option name="AZURE_FUNCTION_APP_OPERATING_SYSTEM" value="LINUX" />
+    <option name="AZURE_FUNCTION_APP_RUNTIME" value="dotnet-isolated" />
+    <option name="AZURE_FUNCTION_APP_RUNTIMEVERSION" value="~4" />
+    <option name="AZURE_FUNCTION_APP_FXVERSION" value="dotnet-isolated|7.0" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_STORAGE_ACCOUNT" value="0" />
+    <option name="AZURE_FUNCTION_APP_STORAGE_ACCOUNT_ID" value="/subscriptions/f42acdb2-e036-40fb-b1b9-42f186d97217/resourceGroups/wedding-website/providers/Microsoft.Storage/storageAccounts/saweddingwebsite" />
+    <option name="AZURE_FUNCTION_APP_STORAGE_ACCOUNT_NAME" value="" />
+    <option name="AZURE_FUNCTION_APP_STORAGE_ACCOUNT_TYPE" value="Standard_LRS" />
+    <option name="AZURE_FUNCTION_APP_IS_DEPLOY_TO_SLOT" value="0" />
+    <option name="AZURE_FUNCTION_APP_SLOT_NAME" value="" />
+    <option name="AZURE_FUNCTION_APP_OPEN_BROWSER_PUBLISH" value="0" />
+    <option name="AZURE_SQL_DATABASE_SUBSCRIPTION_ID" value="f42acdb2-e036-40fb-b1b9-42f186d97217" />
+    <option name="AZURE_SQL_DATABASE_IS_ENABLED" value="0" />
+    <option name="AZURE_SQL_DATABASE_CONNECTION_STRING_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_IS_CREATE" value="0" />
+    <option name="AZURE_SQL_DATABASE_ID" value="" />
+    <option name="AZURE_SQL_DATABASE_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_IS_CREATE_RESOURCE_GROUP" value="0" />
+    <option name="AZURE_SQL_DATABASE_RESOURCE_GROUP_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_IS_CREATE_SQL_SERVER" value="0" />
+    <option name="AZURE_SQL_DATABASE_SQL_SERVER_ID" value="" />
+    <option name="AZURE_SQL_DATABASE_SQL_SERVER_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_SQL_SERVER_ADMIN_LOGIN" value="N/A" />
+    <option name="AZURE_SQL_DATABASE_LOCATION" value="eastus" />
+    <option name="AZURE_SQL_DATABASE_COLLATION" value="SQL_Latin1_General_CP1_CI_AS" />
+    <method v="2" />
+  </configuration>
+</component>

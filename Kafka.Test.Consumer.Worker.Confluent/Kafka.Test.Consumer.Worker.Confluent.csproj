@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-Kafka.Test.Consumer.Worker-C3B076F3-3BD5-4333-BFAA-B0E5229AA1DF</UserSecretsId>
+        <RootNamespace>Kafka.Test.Consumer.Worker.Confluent</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Confluent.Kafka" Version="1.9.3" />
+        <PackageReference Include="Confluent.SchemaRegistry.Serdes.Protobuf" Version="1.9.3" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+        <PackageReference Include="StackExchange.Redis" Version="2.6.80" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Kafka.Test.Schemas\Kafka.Test.Schemas.csproj" />
+    </ItemGroup>
+</Project>
